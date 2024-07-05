@@ -1,5 +1,23 @@
-﻿using ScreenSound.Menus;
+﻿using ScreenSound.Banco;
+using ScreenSound.Menus;
 using ScreenSound.Modelos;
+
+//testar nossa conexão com o banco de dados.
+//queremos verificar se a conexão será feita ou não, caso não aconteça, queremos mapear para ver o que aconteceu
+// por isso usaremos o try cat como boa prática.
+
+try
+{
+    var connection = new Connection().ObterConexao();
+    connection.Open();
+    Console.WriteLine(connection.State);
+}
+catch(Exception ex)
+{
+
+    Console.WriteLine(ex.Message);
+}
+return;
 
 Artista ira = new Artista("Ira!", "Banda Ira!");
 Artista beatles = new("The Beatles", "Banda The Beatles");
